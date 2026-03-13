@@ -7,10 +7,10 @@ interface ValuesSectionProps {
 
 export function ValuesSection({ t }: ValuesSectionProps) {
   const values = [
-    { icon: Ear, key: "proximity", color: "from-primary to-primary/70" },
-    { icon: ShieldCheck, key: "quality", color: "from-secondary to-secondary/70" },
-    { icon: Handshake, key: "trust", color: "from-primary to-secondary" },
-    { icon: Lightbulb, key: "innovation", color: "from-secondary to-primary" },
+    { icon: Ear, key: "proximity" },
+    { icon: ShieldCheck, key: "quality" },
+    { icon: Handshake, key: "trust" },
+    { icon: Lightbulb, key: "innovation" },
   ];
 
   return (
@@ -30,8 +30,8 @@ export function ValuesSection({ t }: ValuesSectionProps) {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {values.map((v, i) => (
             <ScrollReveal key={v.key} delay={i * 100}>
-              <div className="group relative bg-card rounded-2xl p-8 text-center border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 shadow-soft">
-                <div className={`w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br ${v.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+              <div className="group relative bg-card rounded-2xl p-8 text-center border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 shadow-soft gradient-border">
+                <div className="w-16 h-16 mx-auto rounded-2xl hero-gradient-bg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <v.icon className="w-8 h-8 text-primary-foreground" />
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-2">

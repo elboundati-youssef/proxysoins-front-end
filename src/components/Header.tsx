@@ -25,9 +25,9 @@ export function Header({ t, locale, changeLocale, isDark, toggleTheme }: HeaderP
     <header className="fixed top-0 inset-x-0 z-50 glass-card">
       <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 font-bold text-xl tracking-tight">
+        <a href="#" className="flex items-center gap-1 font-bold text-xl tracking-tight">
           <span className="text-gradient">Proxy</span>
-          <span className="text-secondary">Soins</span>
+          <span className="text-foreground">Soins</span>
         </a>
 
         {/* Desktop Nav */}
@@ -36,7 +36,7 @@ export function Header({ t, locale, changeLocale, isDark, toggleTheme }: HeaderP
             <a
               key={link.key}
               href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative after:absolute after:bottom-0 after:start-0 after:w-0 after:h-0.5 after:hero-gradient-bg after:transition-all hover:after:w-full"
             >
               {t(link.key)}
             </a>
@@ -49,13 +49,13 @@ export function Header({ t, locale, changeLocale, isDark, toggleTheme }: HeaderP
           <div className="relative">
             <button
               onClick={() => setLangOpen(!langOpen)}
-              className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
             >
               <Globe className="w-4 h-4" />
               <span className="hidden sm:inline">{localeNames[locale]}</span>
             </button>
             {langOpen && (
-              <div className="absolute end-0 top-full mt-1 w-40 rounded-lg bg-card shadow-elevated border border-border overflow-hidden">
+              <div className="absolute end-0 top-full mt-1 w-40 rounded-xl bg-card shadow-elevated border border-border overflow-hidden">
                 {(Object.keys(localeNames) as Locale[]).map((l) => (
                   <button
                     key={l}
@@ -74,7 +74,7 @@ export function Header({ t, locale, changeLocale, isDark, toggleTheme }: HeaderP
           {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
+            className="p-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
           >
             {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
           </button>
@@ -84,7 +84,7 @@ export function Header({ t, locale, changeLocale, isDark, toggleTheme }: HeaderP
             href="http://proxysoins.ma/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center px-5 py-2.5 rounded-lg text-sm font-semibold hero-gradient-bg text-primary-foreground hover:opacity-90 transition-opacity"
+            className="hidden md:inline-flex items-center px-5 py-2.5 rounded-xl text-sm font-semibold hero-gradient-bg text-primary-foreground hover:opacity-90 hover:scale-105 transition-all"
           >
             {t("nav.cta")}
           </a>
@@ -92,7 +92,7 @@ export function Header({ t, locale, changeLocale, isDark, toggleTheme }: HeaderP
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 rounded-lg text-muted-foreground hover:bg-accent"
+            className="md:hidden p-2 rounded-xl text-muted-foreground hover:bg-accent"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -107,7 +107,7 @@ export function Header({ t, locale, changeLocale, isDark, toggleTheme }: HeaderP
               key={link.key}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="block px-4 py-2.5 rounded-lg text-sm font-medium text-foreground hover:bg-accent transition-colors"
+              className="block px-4 py-2.5 rounded-xl text-sm font-medium text-foreground hover:bg-accent transition-colors"
             >
               {t(link.key)}
             </a>
@@ -116,7 +116,7 @@ export function Header({ t, locale, changeLocale, isDark, toggleTheme }: HeaderP
             href="http://proxysoins.ma/"
             target="_blank"
             rel="noopener noreferrer"
-            className="block text-center px-4 py-2.5 rounded-lg text-sm font-semibold hero-gradient-bg text-primary-foreground"
+            className="block text-center px-4 py-2.5 rounded-xl text-sm font-semibold hero-gradient-bg text-primary-foreground"
           >
             {t("nav.cta")}
           </a>
