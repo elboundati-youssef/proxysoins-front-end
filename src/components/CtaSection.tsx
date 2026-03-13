@@ -14,6 +14,7 @@ export function CtaSection({ t }: CtaSectionProps) {
             {/* Decorative */}
             <div className="absolute top-0 end-0 w-64 h-64 rounded-full bg-primary-foreground/10 blur-3xl" />
             <div className="absolute bottom-0 start-0 w-48 h-48 rounded-full bg-primary-foreground/5 blur-2xl" />
+            <div className="absolute top-1/2 start-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-primary-foreground/5 blur-3xl" />
 
             <div className="relative z-10 max-w-2xl mx-auto space-y-8">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-primary-foreground">
@@ -27,14 +28,14 @@ export function CtaSection({ t }: CtaSectionProps) {
                   href="http://proxysoins.ma/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-card text-foreground font-semibold hover:scale-105 transition-transform shadow-elevated"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-card text-foreground font-semibold hover:scale-105 transition-transform shadow-elevated"
                 >
                   {t("cta.button")}
                   <ArrowRight className="w-5 h-5" />
                 </a>
                 <a
                   href="tel:+212606060640"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border-2 border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-colors"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl border-2 border-primary-foreground/30 text-primary-foreground font-semibold hover:bg-primary-foreground/10 transition-colors"
                 >
                   <Phone className="w-5 h-5" />
                   {t("cta.call")}

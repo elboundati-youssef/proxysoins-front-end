@@ -32,7 +32,7 @@ export function ServicesSection({ t }: ServicesSectionProps) {
             const items = t(`services.${s.itemsKey}`).split("|");
             return (
               <ScrollReveal key={s.key} delay={i * 100}>
-                <div className="group bg-card rounded-2xl p-8 border border-border hover:border-primary/30 shadow-soft hover:shadow-elevated transition-all duration-300">
+                <div className="group bg-card rounded-2xl p-8 border border-border hover:border-primary/30 shadow-soft hover:shadow-elevated transition-all duration-300 gradient-border">
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-12 h-12 rounded-xl hero-gradient-bg flex items-center justify-center group-hover:scale-110 transition-transform">
                       <s.icon className="w-6 h-6 text-primary-foreground" />

@@ -6,41 +6,41 @@
 
 @layer base {
   :root {
-    --background: 200 20% 98%;
-    --foreground: 215 30% 15%;
+    --background: 220 20% 98%;
+    --foreground: 225 30% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 30% 15%;
+    --card-foreground: 225 30% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 30% 15%;
+    --popover-foreground: 225 30% 12%;
 
-    --primary: 174 62% 47%;
+    --primary: 225 85% 53%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 60% 35%;
+    --secondary: 270 70% 55%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 200 15% 93%;
-    --muted-foreground: 215 15% 50%;
+    --muted: 220 15% 93%;
+    --muted-foreground: 225 12% 45%;
 
-    --accent: 174 40% 92%;
-    --accent-foreground: 174 62% 30%;
+    --accent: 230 50% 94%;
+    --accent-foreground: 225 85% 40%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 200 20% 90%;
-    --input: 200 20% 90%;
-    --ring: 174 62% 47%;
+    --border: 220 18% 90%;
+    --input: 220 18% 90%;
+    --ring: 225 85% 53%;
 
     --radius: 0.75rem;
 
-    --hero-gradient: linear-gradient(135deg, hsl(174 62% 47%) 0%, hsl(200 70% 50%) 100%);
-    --glass-bg: hsla(0, 0%, 100%, 0.7);
-    --glass-border: hsla(0, 0%, 100%, 0.3);
-    --shadow-soft: 0 4px 30px hsla(215, 30%, 15%, 0.08);
-    --shadow-elevated: 0 20px 60px hsla(215, 30%, 15%, 0.12);
+    --hero-gradient: linear-gradient(135deg, hsl(225 85% 53%) 0%, hsl(270 70% 55%) 100%);
+    --glass-bg: hsla(0, 0%, 100%, 0.75);
+    --glass-border: hsla(225, 30%, 80%, 0.4);
+    --shadow-soft: 0 4px 30px hsla(225, 30%, 15%, 0.08);
+    --shadow-elevated: 0 20px 60px hsla(225, 30%, 15%, 0.15);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -53,38 +53,38 @@
   }
 
   .dark {
-    --background: 220 25% 8%;
-    --foreground: 200 15% 90%;
+    --background: 225 25% 6%;
+    --foreground: 220 15% 92%;
 
-    --card: 220 25% 12%;
-    --card-foreground: 200 15% 90%;
+    --card: 225 25% 10%;
+    --card-foreground: 220 15% 92%;
 
-    --popover: 220 25% 12%;
-    --popover-foreground: 200 15% 90%;
+    --popover: 225 25% 10%;
+    --popover-foreground: 220 15% 92%;
 
-    --primary: 174 62% 47%;
+    --primary: 225 85% 60%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 50% 50%;
+    --secondary: 270 70% 62%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 20% 16%;
-    --muted-foreground: 215 15% 60%;
+    --muted: 225 20% 14%;
+    --muted-foreground: 225 12% 55%;
 
-    --accent: 174 30% 18%;
-    --accent-foreground: 174 62% 65%;
+    --accent: 230 30% 16%;
+    --accent-foreground: 225 85% 70%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 20% 18%;
-    --input: 220 20% 18%;
-    --ring: 174 62% 47%;
+    --border: 225 20% 16%;
+    --input: 225 20% 16%;
+    --ring: 225 85% 60%;
 
-    --glass-bg: hsla(220, 25%, 12%, 0.7);
-    --glass-border: hsla(220, 25%, 20%, 0.5);
+    --glass-bg: hsla(225, 25%, 10%, 0.75);
+    --glass-border: hsla(225, 25%, 22%, 0.5);
     --shadow-soft: 0 4px 30px hsla(0, 0%, 0%, 0.3);
-    --shadow-elevated: 0 20px 60px hsla(0, 0%, 0%, 0.4);
+    --shadow-elevated: 0 20px 60px hsla(0, 0%, 0%, 0.45);
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -117,6 +117,7 @@
   .glass-card {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
     box-shadow: var(--shadow-soft);
   }
@@ -139,6 +140,22 @@
   .shadow-soft {
     box-shadow: var(--shadow-soft);
   }
+
+  .gradient-border {
+    position: relative;
+  }
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: var(--hero-gradient);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
 }
 
 @layer utilities {
@@ -149,5 +166,14 @@
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
+  }
+
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
 }
