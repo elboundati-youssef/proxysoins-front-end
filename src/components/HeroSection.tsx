@@ -1,4 +1,4 @@
-import heroImg from "@/assets/hero-doctor.jpg";
+import heroImg from "@/assets/img 1-t.jpg";
 
 interface HeroSectionProps {
   t: (key: string) => string;
@@ -6,7 +6,7 @@ interface HeroSectionProps {
 
 export function HeroSection({ t }: HeroSectionProps) {
   return (
-    <section className="relative min-h-screen flex items-center pt-16 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-28 md:pt-20 overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-20 start-0 w-[600px] h-[600px] rounded-full bg-primary/10 blur-3xl" />
