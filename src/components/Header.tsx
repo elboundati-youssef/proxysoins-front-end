@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Globe, Sun, Moon, Menu, X } from "lucide-react";
 import { type Locale, localeNames } from "@/lib/i18n";
-
+import ApplicationLogoFull from './ApplicationLogoFull';
+import { Link } from 'react-router-dom';
 interface HeaderProps {
   t: (key: string) => string;
   locale: Locale;
@@ -25,11 +26,9 @@ export function Header({ t, locale, changeLocale, isDark, toggleTheme }: HeaderP
     <header className="fixed top-0 inset-x-0 z-50 glass-card">
       <div className="container mx-auto flex items-center justify-between h-16 px-4 lg:px-8">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-1 font-bold text-xl tracking-tight">
-          <span className="text-gradient">Proxy</span>
-          <span className="text-foreground">Soins</span>
-        </a>
-
+   <Link to="/" className="focus:outline-none transition-transform hover:scale-105 inline-block">
+    <ApplicationLogoFull className="h-16 md:h-24 w-auto text-gray-900 dark:text-white" />
+</Link>
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
