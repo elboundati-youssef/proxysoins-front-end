@@ -25,46 +25,40 @@ const teamMembers = [
 
 export function TeamSection({ t }: TeamSectionProps) {
   return (
-    <section className="py-28 bg-muted/30 relative overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 start-1/3 w-[500px] h-[500px] rounded-full bg-secondary/[0.04] blur-3xl" />
-      </div>
-
+    <section className="py-24 bg-muted/30">
       <div className="container mx-auto px-4 lg:px-8">
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="section-tag mb-5">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-medium mb-4">
               {t("team.tag")}
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground mt-5 mb-6 tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-6">
               {t("team.title")}
             </h2>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               {t("team.desc")}
             </p>
-            <div className="mt-6 inline-flex items-center gap-2 px-6 py-2.5 rounded-full hero-gradient-bg text-primary-foreground text-sm font-semibold shadow-elevated">
+            <div className="mt-4 inline-flex items-center gap-2 px-5 py-2 rounded-full hero-gradient-bg text-primary-foreground text-sm font-semibold">
               {t("team.stat")}
             </div>
           </div>
         </ScrollReveal>
 
-        <div className="grid sm:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
+        <div className="grid sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {teamMembers.map((m, i) => (
             <ScrollReveal key={m.key} delay={i * 150}>
-              <div className="group relative rounded-3xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 hover:-translate-y-2">
+              <div className="group relative rounded-2xl overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-300 hover:-translate-y-1">
                 <img
                   src={m.img}
                   alt={t(`team.${m.key}`)}
-                  className="w-full aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent" />
                 <div className="absolute bottom-0 inset-x-0 p-6 text-center">
-                  <div className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-2xl glass-card backdrop-blur-xl">
-                    <div className="icon-box icon-box-gradient w-8 h-8 rounded-lg">
-                      <m.icon className="w-4 h-4 text-primary-foreground" />
-                    </div>
-                    <span className="font-bold text-foreground text-sm">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card">
+                    <m.icon className="w-5 h-5 text-primary" />
+                    <span className="font-semibold text-foreground text-sm">
                       {t(`team.${m.key}`)}
                     </span>
                   </div>
