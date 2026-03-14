@@ -17,45 +17,44 @@ const partners = [
 ];
 
 export function PartnersSection({ t }: PartnersSectionProps) {
-  // Duplicate for infinite scroll
   const allPartners = [...partners, ...partners];
 
   return (
-    <section className="py-20 overflow-hidden">
-      <div className="container mx-auto px-4 lg:px-8 mb-12">
+    <section className="py-24 overflow-hidden">
+      <div className="container mx-auto px-4 lg:px-8 mb-14">
         <ScrollReveal>
           <div className="text-center max-w-2xl mx-auto">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-medium mb-4">
+            <span className="section-tag mb-5">
               {t("partners.tag")}
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground mt-5 tracking-tight">
               {t("partners.title")}
             </h2>
           </div>
         </ScrollReveal>
       </div>
 
-     {/* Marquee */}
-<div className="relative">
-  <div className="absolute inset-y-0 start-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-  <div className="absolute inset-y-0 end-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+      {/* Marquee */}
+      <div className="relative">
+        <div className="absolute inset-y-0 start-0 w-40 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-y-0 end-0 w-40 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
-  <div className="flex animate-marquee items-center gap-16 w-max">
-    {allPartners.map((p, i) => (
-      <div
-        key={`${p.name}-${i}`}
-        className="flex-shrink-0 h-16 w-40 flex items-center justify-center opacity-80 hover:opacity-100 transition-all duration-300"
-      >
-        <img
-          src={p.src}
-          alt={p.name}
-          className="max-h-full max-w-full object-contain"
-          loading="lazy"
-        />
+        <div className="flex animate-marquee items-center gap-20 w-max py-4">
+          {allPartners.map((p, i) => (
+            <div
+              key={`${p.name}-${i}`}
+              className="flex-shrink-0 h-14 w-36 flex items-center justify-center opacity-50 hover:opacity-100 transition-all duration-500 grayscale hover:grayscale-0"
+            >
+              <img
+                src={p.src}
+                alt={p.name}
+                className="max-h-full max-w-full object-contain"
+                loading="lazy"
+              />
+            </div>
+          ))}
+        </div>
       </div>
-    ))}
-  </div>
-</div>
     </section>
   );
 }
