@@ -13,8 +13,9 @@ export function ValuesSection({ t }: ValuesSectionProps) {
     { icon: Lightbulb, key: "innovation" },
   ];
 
+  // Bento box: first item spans 2 cols, rest are single
   return (
-    <section className="py-24">
+    <section className="py-28">
       <div className="container mx-auto px-4 lg:px-8">
         <ScrollReveal>
           <div className="text-center max-w-2xl mx-auto mb-16">
@@ -27,22 +28,36 @@ export function ValuesSection({ t }: ValuesSectionProps) {
           </div>
         </ScrollReveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {values.map((v, i) => (
-            <ScrollReveal key={v.key} delay={i * 100}>
-              <div className="group relative bg-card rounded-2xl p-8 text-center border border-border hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 shadow-soft gradient-border">
-                <div className="w-16 h-16 mx-auto rounded-2xl hero-gradient-bg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                  <v.icon className="w-8 h-8 text-primary-foreground" />
+        {/* Bento asymmetric grid */}
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-5">
+          {values.map((v, i) => {
+            // Asymmetric: 0→span4, 1→span2, 2→span2, 3→span4
+            const spanClass = i === 0 || i === 3
+              ? "md:col-span-4"
+              : "md:col-span-2";
+
+            return (
+              <ScrollReveal key={v.key} delay={i * 100} className={spanClass}>
+                <div className="group relative h-full bg-card rounded-3xl p-8 border border-border hover:border-primary/40 transition-all duration-500 hover:-translate-y-1 overflow-hidden">
+                  {/* Gradient glow on hover */}
+                  <div className="absolute inset-0 hero-gradient-bg opacity-0 group-hover:opacity-[0.04] transition-opacity duration-500 rounded-3xl" />
+                  <div className="relative flex items-start gap-5">
+                    <div className="shrink-0 w-14 h-14 rounded-2xl hero-gradient-bg flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                      <v.icon className="w-7 h-7 text-primary-foreground" />
+                    </div>
+                    <div className="pt-1">
+                      <h3 className="text-lg font-bold text-foreground mb-2">
+                        {t(`values.${v.key}`)}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {t(`values.${v.key}Desc`)}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">
-                  {t(`values.${v.key}`)}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {t(`values.${v.key}Desc`)}
-                </p>
-              </div>
-            </ScrollReveal>
-          ))}
+              </ScrollReveal>
+            );
+          })}
         </div>
       </div>
     </section>
