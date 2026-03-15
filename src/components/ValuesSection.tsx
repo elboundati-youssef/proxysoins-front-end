@@ -6,58 +6,116 @@ interface ValuesSectionProps {
 }
 
 export function ValuesSection({ t }: ValuesSectionProps) {
-  const values = [
-    { icon: Ear, key: "proximity" },
-    { icon: ShieldCheck, key: "quality" },
-    { icon: Handshake, key: "trust" },
-    { icon: Lightbulb, key: "innovation" },
-  ];
-
-  // Bento box: first item spans 2 cols, rest are single
   return (
-    <section className="py-28">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section className="py-16 md:py-28 relative overflow-hidden">
+      {/* Background decoration (Aligné sur le style du Hero) */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-1/2 start-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[600px] h-[300px] md:h-[600px] rounded-full hero-gradient-bg opacity-[0.03] blur-2xl md:blur-3xl" />
+      </div>
+
+      <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <ScrollReveal>
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-medium mb-4">
+          <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16 animate-fade-up">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card gradient-border text-xs sm:text-sm font-medium text-foreground mb-4 md:mb-6">
+              <span className="w-2 h-2 rounded-full hero-gradient-bg" />
               {t("values.tag")}
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground">
+            </div>
+            
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight text-foreground">
               {t("values.title")}
             </h2>
           </div>
         </ScrollReveal>
 
-        {/* Bento asymmetric grid */}
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-5">
-          {values.map((v, i) => {
-            // Asymmetric: 0→span4, 1→span2, 2→span2, 3→span4
-            const spanClass = i === 0 || i === 3
-              ? "md:col-span-4"
-              : "md:col-span-2";
+        {/* LA MAGIE EST ICI : 
+          grid-cols-2 sur mobile (2 par 2) 
+          md:grid-cols-6 sur ordinateur (Bento asymétrique)
+          gap-4 sur mobile pour que ça rentre, gap-8 sur ordinateur
+        */}
+        <div className="grid grid-cols-2 md:grid-cols-6 gap-3 sm:gap-4 md:gap-8">
+          
+          {/* Carte 1 : Span 1 sur mobile, Span 4 sur Desktop */}
+          <ScrollReveal delay={100} className="col-span-1 md:col-span-4">
+            <div className="group h-full hero-gradient-bg rounded-2xl md:rounded-3xl p-5 md:p-10 relative overflow-hidden transition-all duration-300 hover:scale-[1.02] shadow-elevated flex flex-col justify-between min-h-[220px] md:min-h-[300px]">
+              {/* Icône de fond réduite sur mobile */}
+              <Ear className="absolute -right-4 -bottom-4 md:-right-8 md:-bottom-8 w-32 h-32 md:w-64 md:h-64 text-primary-foreground opacity-10 group-hover:scale-110 group-hover:-rotate-6 transition-transform duration-700" />
+              
+              <div className="relative z-10 w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl glass-card border border-white/20 flex items-center justify-center mb-6 md:mb-10 shadow-sm">
+                <Ear className="w-5 h-5 md:w-6 md:h-6 text-primary-foreground" />
+              </div>
+              <div className="relative z-10">
+                {/* Textes fluides : petits sur mobile, grands sur desktop */}
+                <h3 className="text-base md:text-2xl font-extrabold text-primary-foreground mb-1 md:mb-3 tracking-tight">
+                  {t(`values.proximity`)}
+                </h3>
+                <p className="text-primary-foreground/90 text-xs md:text-base max-w-lg leading-relaxed line-clamp-3 md:line-clamp-none">
+                  {t(`values.proximityDesc`)}
+                </p>
+              </div>
+            </div>
+          </ScrollReveal>
 
-            return (
-              <ScrollReveal key={v.key} delay={i * 100} className={spanClass}>
-                <div className="group relative h-full bg-card rounded-3xl p-8 border border-border hover:border-primary/40 transition-all duration-500 hover:-translate-y-1 overflow-hidden">
-                  {/* Gradient glow on hover */}
-                  <div className="absolute inset-0 hero-gradient-bg opacity-0 group-hover:opacity-[0.04] transition-opacity duration-500 rounded-3xl" />
-                  <div className="relative flex items-start gap-5">
-                    <div className="shrink-0 w-14 h-14 rounded-2xl hero-gradient-bg flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                      <v.icon className="w-7 h-7 text-primary-foreground" />
-                    </div>
-                    <div className="pt-1">
-                      <h3 className="text-lg font-bold text-foreground mb-2">
-                        {t(`values.${v.key}`)}
-                      </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {t(`values.${v.key}Desc`)}
-                      </p>
-                    </div>
-                  </div>
+          {/* Carte 2 : Span 1 sur mobile, Span 2 sur Desktop */}
+          <ScrollReveal delay={200} className="col-span-1 md:col-span-2">
+            <div className="group h-full bg-card rounded-2xl md:rounded-3xl p-5 md:p-8 border border-border hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-elevated flex flex-col justify-between min-h-[220px] md:min-h-[300px]">
+              <div className="flex justify-end w-full mb-6 md:mb-8">
+                <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-accent flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                  <ShieldCheck className="w-5 h-5 md:w-6 md:h-6 text-foreground" />
                 </div>
-              </ScrollReveal>
-            );
-          })}
+              </div>
+              <div>
+                <h3 className="text-base md:text-xl font-bold text-foreground mb-1 md:mb-2 line-clamp-1">
+                  {t(`values.quality`)}
+                </h3>
+                <p className="text-xs md:text-sm text-muted-foreground leading-relaxed line-clamp-3 md:line-clamp-none">
+                  {t(`values.qualityDesc`)}
+                </p>
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* Carte 3 : Span 1 sur mobile, Span 2 sur Desktop */}
+          <ScrollReveal delay={300} className="col-span-1 md:col-span-2">
+            <div className="group h-full bg-transparent rounded-2xl md:rounded-3xl p-5 md:p-8 border-2 border-dashed border-border hover:border-primary/50 hover:bg-card transition-all duration-300 flex flex-col justify-center items-center text-center min-h-[220px] md:min-h-[300px]">
+              <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl hero-gradient-bg flex items-center justify-center mb-4 md:mb-6 shadow-md group-hover:-translate-y-1 transition-transform duration-300">
+                <Handshake className="w-5 h-5 md:w-6 md:h-6 text-primary-foreground" />
+              </div>
+              <h3 className="text-base md:text-xl font-bold text-foreground mb-1 md:mb-2 line-clamp-1">
+                {t(`values.trust`)}
+              </h3>
+              <p className="text-xs md:text-sm text-muted-foreground leading-relaxed line-clamp-3 md:line-clamp-none">
+                {t(`values.trustDesc`)}
+              </p>
+            </div>
+          </ScrollReveal>
+
+          {/* Carte 4 : Span 1 sur mobile, Span 4 sur Desktop */}
+          <ScrollReveal delay={400} className="col-span-1 md:col-span-4">
+            <div className="group h-full bg-card rounded-2xl md:rounded-3xl p-5 md:p-10 border border-border relative overflow-hidden transition-all duration-300 hover:shadow-elevated min-h-[220px] md:min-h-[300px] flex items-end md:items-center">
+              <div className="absolute top-0 right-0 w-32 h-32 md:w-64 md:h-64 bg-primary/5 blur-2xl md:blur-3xl rounded-full pointer-events-none group-hover:bg-primary/10 transition-colors duration-500" />
+              
+              <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between w-full gap-4 md:gap-8">
+                <div className="flex-1">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl border border-border bg-background flex items-center justify-center mb-4 md:mb-6">
+                    <Lightbulb className="w-5 h-5 md:w-6 md:h-6 text-foreground" />
+                  </div>
+                  <h3 className="text-base md:text-2xl font-extrabold text-gradient mb-1 md:mb-3 tracking-tight line-clamp-1 md:line-clamp-none">
+                    {t(`values.innovation`)}
+                  </h3>
+                  <p className="text-xs md:text-base text-muted-foreground leading-relaxed max-w-md line-clamp-3 md:line-clamp-none">
+                    {t(`values.innovationDesc`)}
+                  </p>
+                </div>
+                
+                {/* Animation visible uniquement sur grand écran */}
+                <div className="hidden md:flex w-32 h-32 shrink-0 items-center justify-center rounded-full border border-border relative">
+                   <div className="absolute inset-2 rounded-full border border-dashed border-border animate-[spin_12s_linear_infinite]" />
+                   <Lightbulb className="w-8 h-8 text-muted-foreground group-hover:text-foreground transition-colors duration-300 z-10" />
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+
         </div>
       </div>
     </section>
