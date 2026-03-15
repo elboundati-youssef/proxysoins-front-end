@@ -17,7 +17,7 @@ const partners = [
 ];
 
 export function PartnersSection({ t }: PartnersSectionProps) {
-  // Triple pour garantir un défilement infini sans trou sur les écrans très larges
+  // Triple pour garantir un défilement infini sans trou
   const allPartners = [...partners, ...partners, ...partners];
 
   return (
@@ -25,13 +25,12 @@ export function PartnersSection({ t }: PartnersSectionProps) {
       <div className="container mx-auto px-4 lg:px-8 mb-16 md:mb-20">
         <ScrollReveal>
           <div className="text-center max-w-2xl mx-auto flex flex-col items-center">
-            {/* Tag harmonisé avec ton design system */}
+            {/* Tag harmonisé */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card gradient-border text-xs sm:text-sm font-medium text-foreground mb-6 shadow-sm">
               <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full hero-gradient-bg shrink-0" />
               {t("partners.tag")}
             </div>
             
-            {/* Titre proportionnel au Hero */}
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight text-foreground">
               {t("partners.title")}
             </h2>
@@ -41,16 +40,17 @@ export function PartnersSection({ t }: PartnersSectionProps) {
 
       {/* Marquee Container */}
       <div className="relative flex">
-        {/* Masques de dégradé pour le fondu (Vignetting) */}
+        {/* Masques de dégradé pour le fondu sur les côtés */}
         <div className="absolute inset-y-0 start-0 w-20 md:w-64 bg-gradient-to-r from-background via-background/80 to-transparent z-10 pointer-events-none" />
         <div className="absolute inset-y-0 end-0 w-20 md:w-64 bg-gradient-to-l from-background via-background/80 to-transparent z-10 pointer-events-none" />
 
-        {/* Animation Marquee */}
-        <div className="flex animate-marquee items-center gap-12 md:gap-20 w-max py-4">
+        {/* Animation Marquee avec couleurs d'origine */}
+        <div className="flex animate-marquee items-center gap-12 md:gap-24 w-max py-4">
           {allPartners.map((p, i) => (
             <div
               key={`${p.name}-${i}`}
-              className="flex-shrink-0 h-12 md:h-16 w-32 md:w-48 flex items-center justify-center grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-default"
+              /* Suppression de grayscale, augmentation de l'opacité de base */
+              className="flex-shrink-0 h-10 md:h-14 w-32 md:w-44 flex items-center justify-center opacity-90 hover:opacity-100 hover:scale-105 transition-all duration-300 cursor-default"
             >
               <img
                 src={p.src}
@@ -63,18 +63,18 @@ export function PartnersSection({ t }: PartnersSectionProps) {
         </div>
       </div>
 
-      {/* Styles inline pour l'animation si non définie dans ton Tailwind config */}
+      {/* Animation CSS */}
       <style>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
           100% { transform: translateX(-33.33%); }
         }
         .animate-marquee {
-          animation: marquee 40s linear infinite;
+          animation: marquee 35s linear infinite;
         }
         @media (max-width: 768px) {
           .animate-marquee {
-            animation: marquee 25s linear infinite;
+            animation: marquee 20s linear infinite;
           }
         }
       `}</style>
