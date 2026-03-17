@@ -7,7 +7,8 @@ export const fr: Record<string, string> = {
 
   "hero.title": "L'expertise médicale,",
   "hero.titleHighlight": "chez vous et en entreprise.",
-  "hero.subtitle": "ProxySoins connecte patients et professionnels pour une prise en charge optimale. Soins à domicile, gestion médicale en entreprise : intervention rapide, humaine et professionnelle, là où vous en avez besoin.",
+  "hero.subtitle": "ProxySoins connecte patients et professionnels pour une prise en charge optimale.\n Soins à domicile, gestion médicale en entreprise : intervention rapide, humaine et professionnelle, là où vous en avez besoin.",
+  "hero.subtitleMobile": "ProxySoins connecte patients et professionnels pour une prise en charge optimale. Soins à domicile, gestion médicale en entreprise : intervention rapide, humaine et professionnelle, là où vous en avez besoin.",
   "hero.cta1": "Commander",
   "hero.cta2": "Nous contacter",
   "hero.stat1": "9+",
@@ -19,7 +20,8 @@ export const fr: Record<string, string> = {
 
   "about.tag": "Notre Mission",
   "about.title": "Réinventer l'accès aux soins.",
-  "about.desc": "ProxySoins connecte patients et professionnels pour une prise en charge optimale. Que ce soit pour des soins à domicile ou la gestion médicale en entreprise, notre plateforme garantit une intervention rapide, humaine et professionnelle.",
+  "about.desc": "ProxySoins connecte patients et professionnels pour une prise \nen charge optimale.\n Que ce soit pour des soins à domicile ou la gestion médicale \nen entreprise, notre plateforme garantit une intervention rapide, humaine et professionnelle.",
+  "about.descMobile": "ProxySoins connecte patients \net professionnels pour une prise\n en charge optimale.\n Que ce soit pour des soins à domicile\n ou la gestion médicale en entreprise,\n notre plateforme garantit une intervention rapide, humaine et professionnelle.",
   "about.mission": "Une Mission Globale : Particuliers & Entreprises",
   "about.missionDesc": "Nous œuvrons pour une santé accessible avec trois engagements fondamentaux :",
   "about.alt1": "Alternative à l'Hospitalisation",
@@ -31,11 +33,13 @@ export const fr: Record<string, string> = {
 
   "quality.tag": "Notre Engagement",
   "quality.title": "Notre Promesse de Qualité",
-  "quality.desc": "Chez ProxySoins, l'excellence n'est pas une option. Nous nous engageons à fournir des prestations irréprochables, appuyées par le respect scrupuleux des normes internationales, des équipements de pointe et une équipe en formation constante.",
+  "quality.desc": "Chez ProxySoins, l'excellence n'est pas une option. \nNous nous engageons à fournir des prestations irréprochables, appuyées par le respect scrupuleux \ndes normes internationales, des équipements\n de pointe et une équipe en formation constante.",
+ "quality.descMobile": "Chez ProxySoins, l'excellence \n n'est pas une option. \nNous nous engageons à fournir\n des prestations irréprochables,\n appuyées par le respect scrupuleux\n des normes internationales, \ndes équipements de pointe \net une équipe en formation constante.",
 
   "team.tag": "Notre Équipe",
   "team.title": "Des experts à votre service",
-  "team.desc": "La force de ProxySoins réside dans ses talents. Médecins, infirmiers, ambulanciers et coordinateurs : chaque membre de notre équipe partage une même vision, celle d'une médecine humaine et compétente, travaillant sans relâche pour votre bien-être.",
+  "team.desc": "La force de ProxySoins réside dans ses talents. Médecins, infirmiers, ambulanciers et coordinateurs : chaque membre de notre équipe partage une même vision, celle d'une médecine humaine \net compétente, travaillant sans relâche pour votre bien-être.",
+  "team.descMobile": "La force de ProxySoins réside dans ses talents. Médecins, infirmiers, ambulanciers \net coordinateurs : chaque membre de notre équipe partage une même vision, celle d'une médecine humaine et compétente, travaillant sans relâche pour votre bien-être.",
   "team.stat": "9+ professionnels de la santé issus de différents horizons",
   "team.doctors": "Médecins",
   "team.nurses": "Infirmier(ère)s",
@@ -81,6 +85,7 @@ export const fr: Record<string, string> = {
 
   "cta.title": "Votre santé n'attend pas.",
   "cta.subtitle": "Prenez rendez-vous dès aujourd'hui pour une prise en charge personnalisée. Contactez-nous pour un devis gratuit ou une intervention immédiate.",
+  "cta.subtitleMobile": "Prenez rendez-vous dès aujourd'hui\n pour une prise en charge personnalisée.\n Contactez-nous pour un devis gratuit\n ou une intervention immédiate.",
   "cta.button": "Commencez maintenant",
   "cta.call": "Appelez-nous",
   "cta.newsletter": "Rejoignez notre newsletter !",

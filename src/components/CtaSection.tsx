@@ -12,7 +12,7 @@ export function CtaSection({ t }: CtaSectionProps) {
         <ScrollReveal>
           {/* Ajustement du padding : p-6 sur mobile, p-20 sur desktop */}
           <div className="relative rounded-3xl hero-gradient-bg p-6 sm:p-12 md:p-20 text-center overflow-hidden shadow-elevated">
-            
+
             {/* Decorative - Halos réduits sur mobile pour éviter les taches de couleur */}
             <div className="absolute top-0 end-0 w-32 md:w-64 h-32 md:h-64 rounded-full bg-primary-foreground/10 blur-2xl md:blur-3xl" />
             <div className="absolute bottom-0 start-0 w-24 md:w-48 h-24 md:h-48 rounded-full bg-primary-foreground/5 blur-xl md:blur-2xl" />
@@ -22,9 +22,14 @@ export function CtaSection({ t }: CtaSectionProps) {
               <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-primary-foreground leading-tight">
                 {t("cta.title")}
               </h2>
-              
-              <p className="text-sm sm:text-lg text-primary-foreground/80 leading-relaxed">
-                {t("cta.subtitle")}
+
+              <p className="text-sm sm:text-lg text-primary-foreground/80 leading-relaxed whitespace-pre-line">
+                <span className="block md:hidden">
+                  {t("cta.subtitleMobile")}
+                </span>
+                <span className="hidden md:block">
+                  {t("cta.subtitle")}
+                </span>
               </p>
 
               {/* Boutons : flex-col sur mobile (un sous l'autre), flex-row sur desktop */}

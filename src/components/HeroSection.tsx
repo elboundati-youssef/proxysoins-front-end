@@ -7,7 +7,7 @@ interface HeroSectionProps {
 export function HeroSection({ t }: HeroSectionProps) {
   return (
     <section className="relative min-h-[100svh] flex items-center pt-20 md:pt-28 pb-10 md:pb-20 overflow-hidden">
-      
+
       {/* Background decoration (réduit sur mobile pour éviter les bugs) */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-20 start-0 w-[300px] md:w-[600px] h-[300px] md:h-[600px] rounded-full bg-primary/10 blur-3xl" />
@@ -18,26 +18,34 @@ export function HeroSection({ t }: HeroSectionProps) {
       <div className="container mx-auto px-4 lg:px-8">
         {/* Gap réduit drastiquement sur mobile (gap-6) pour coller l'image au texte */}
         <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-center">
-          
+
           {/* Text Block - Centré sur mobile, aligné à gauche sur Desktop */}
           <div className="space-y-4 md:space-y-8 animate-fade-up flex flex-col items-center text-center lg:items-start lg:text-start">
-            
+
             <div className="inline-flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 rounded-full glass-card gradient-border text-xs md:text-sm font-medium text-foreground">
               <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full hero-gradient-bg" />
               ProxySoins
             </div>
-            
+
             {/* Taille de texte réduite et interligne resserré sur mobile */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-foreground">
               {t("hero.title")}
               <br className="hidden sm:block" />
               <span className="text-gradient"> {t("hero.titleHighlight")}</span>
             </h1>
-            
+
             <p className="text-sm md:text-lg text-muted-foreground max-w-xl leading-relaxed whitespace-pre-line">
-              {t("hero.subtitle")}
+
+              <span className="block md:hidden">
+                {t("hero.subtitleMobile")}
+              </span>
+
+              <span className="hidden md:block">
+                {t("hero.subtitle")}
+              </span>
+
             </p>
-            
+
             {/* Boutons : Plus fins sur mobile, côte à côte si possible */}
             <div className="flex flex-row justify-center lg:justify-start gap-3 w-full sm:w-auto mt-2">
               <a
@@ -79,7 +87,7 @@ export function HeroSection({ t }: HeroSectionProps) {
             {/* max-w-[220px] restreint sévèrement la taille de l'image sur téléphone ! */}
             <div className="relative w-full max-w-[220px] sm:max-w-sm md:max-w-md">
               <div className="absolute inset-0 rounded-2xl md:rounded-3xl hero-gradient-bg opacity-20 blur-xl md:blur-2xl scale-110" />
-              
+
               {/* L'image nettoyée de tout commentaire interne */}
               <img
                 src={heroImg}
@@ -87,7 +95,7 @@ export function HeroSection({ t }: HeroSectionProps) {
                 className="relative rounded-2xl md:rounded-3xl shadow-elevated w-full object-cover aspect-[4/5] md:aspect-[5/6]"
                 loading="eager"
               />
-              
+
               {/* Floating card - Éléments rétrécis et replacés à l'intérieur (-start-2 au lieu de -start-4) */}
               <div className="absolute -bottom-3 -start-2 md:-bottom-4 md:-start-4 glass-card rounded-xl md:rounded-2xl p-2 md:p-4 animate-float shadow-lg">
                 <div className="flex items-center gap-2 md:gap-3">
@@ -98,7 +106,7 @@ export function HeroSection({ t }: HeroSectionProps) {
                   </div>
                 </div>
               </div>
-              
+
               {/* Top floating card */}
               <div className="absolute -top-2 -end-2 md:-top-3 md:-end-3 glass-card rounded-xl md:rounded-2xl p-1.5 md:p-3 animate-float shadow-lg" style={{ animationDelay: "3s" }}>
                 <div className="flex items-center gap-1.5 md:gap-2">

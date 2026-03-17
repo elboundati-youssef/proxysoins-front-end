@@ -17,31 +17,41 @@ export function AboutSection({ t }: AboutSectionProps) {
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Gap réduit sur mobile (gap-12) pour éviter un trop grand vide entre les deux blocs */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-          
+
           {/* Colonne Gauche : Le Récit */}
           <ScrollReveal>
             <div className="space-y-6 md:space-y-8 flex flex-col items-start">
-              
+
               {/* Badge harmonisé avec ton design system (Hero) */}
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card gradient-border text-xs sm:text-sm font-medium text-foreground mb-2">
                 <span className="w-2 h-2 rounded-full hero-gradient-bg shrink-0" />
                 {t("about.tag")}
               </div>
-              
+
               {/* Typographie fluide : text-3xl sur mobile, jusqu'à 5xl sur grand écran */}
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-foreground leading-tight tracking-tight">
                 {t("about.title")}
               </h2>
-              
+
               {/* Description plus lisible sur petit écran */}
-              <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
-                {t("about.desc")}
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed whitespace-pre-line">
+
+
+                <span className="block md:hidden">
+                  {t("about.descMobile")}
+                </span>
+
+
+                <span className="hidden md:block">
+                  {t("about.desc")}
+                </span>
+
               </p>
-              
+
               {/* CTA Link */}
               <div className="pt-2 md:pt-6">
-                <a 
-                  href="#services" 
+                <a
+                  href="#services"
                   className="group inline-flex items-center gap-3 md:gap-4 text-foreground font-semibold transition-all"
                 >
                   <span className="text-base md:text-lg group-hover:text-transparent group-hover:bg-clip-text group-hover:hero-gradient-bg transition-all duration-300">
@@ -58,15 +68,15 @@ export function AboutSection({ t }: AboutSectionProps) {
           {/* Colonne Droite : La Carte Mission */}
           <ScrollReveal delay={200}>
             <div className="relative">
-              
+
               {/* Le blur derrière la carte est légèrement réduit sur mobile pour ne pas baver hors de l'écran */}
               <div className="absolute -inset-2 md:-inset-4 bg-gradient-to-tr from-transparent via-primary/5 to-transparent rounded-[2rem] md:rounded-[2.5rem] blur-lg md:blur-xl -z-10 opacity-50" />
 
               {/* Padding interne adapté : p-6 sur mobile, p-12 sur desktop */}
               <div className="relative bg-card rounded-[2rem] md:rounded-3xl p-6 sm:p-8 md:p-12 border border-border shadow-elevated overflow-hidden group">
-                
+
                 <div className="absolute -top-12 -end-12 md:-top-24 md:-end-24 w-40 h-40 md:w-64 md:h-64 hero-gradient-bg opacity-[0.07] rounded-full blur-2xl md:blur-3xl transition-transform duration-700 group-hover:scale-150" />
-                
+
                 <div className="relative z-10 mb-8 md:mb-10">
                   <h3 className="text-xl md:text-3xl font-extrabold text-foreground mb-3 md:mb-4 tracking-tight">
                     {t("about.mission")}
@@ -84,8 +94,8 @@ export function AboutSection({ t }: AboutSectionProps) {
                     { icon: Award, key: "alt2" },
                     { icon: UserCheck, key: "alt3" },
                   ].map((item, i) => (
-                    <div 
-                      key={item.key} 
+                    <div
+                      key={item.key}
                       /* Padding réduit (p-3 au lieu de p-4) sur mobile pour laisser plus de place au texte */
                       className="flex items-start gap-4 md:gap-5 p-3 md:p-4 rounded-xl md:rounded-2xl border border-transparent hover:border-border hover:bg-background/50 transition-all duration-300 group/item cursor-default"
                     >
@@ -104,11 +114,11 @@ export function AboutSection({ t }: AboutSectionProps) {
                     </div>
                   ))}
                 </div>
-                
+
               </div>
             </div>
           </ScrollReveal>
-          
+
         </div>
       </div>
     </section>
