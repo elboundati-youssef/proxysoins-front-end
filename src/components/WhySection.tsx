@@ -58,8 +58,7 @@ export function WhySection({ t }: WhySectionProps) {
             {reasons.map((r, i) => (
               <ScrollReveal key={r.key} delay={i * 100}>
                 {/* Carte Premium : Adaptée pour mobile */}
-                <div className="group relative bg-card/60 backdrop-blur-xl p-6 md:p-10 rounded-2xl md:rounded-[2.5rem] border border-border hover:border-primary/40 transition-all duration-500 hover:shadow-elevated overflow-hidden flex flex-col sm:flex-row gap-5 md:gap-8 items-center sm:items-start text-center sm:text-start">
-                  
+<div className="group relative bg-card/60 backdrop-blur-xl p-4 sm:p-6 md:p-8 rounded-2xl md:rounded-[2rem] border border-border hover:border-primary/40 transition-all duration-300 hover:shadow-elevated overflow-hidden flex flex-row gap-4 md:gap-6 items-center text-start">                  
                   {/* Numéro Filigrane réduit sur mobile */}
                   <div className="absolute -right-4 -top-4 md:-right-8 md:-top-8 text-6xl md:text-[10rem] font-black text-foreground/[0.03] md:text-foreground/[0.05] leading-none select-none group-hover:scale-110 group-hover:text-primary/10 transition-all duration-700 pointer-events-none">
                     {String(i + 1).padStart(2, "0")}

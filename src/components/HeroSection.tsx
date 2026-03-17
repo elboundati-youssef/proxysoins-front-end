@@ -34,7 +34,7 @@ export function HeroSection({ t }: HeroSectionProps) {
               <span className="text-gradient"> {t("hero.titleHighlight")}</span>
             </h1>
             
-            <p className="text-sm md:text-lg text-muted-foreground max-w-xl leading-relaxed">
+            <p className="text-sm md:text-lg text-muted-foreground max-w-xl leading-relaxed whitespace-pre-line">
               {t("hero.subtitle")}
             </p>
             
